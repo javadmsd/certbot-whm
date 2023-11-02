@@ -40,7 +40,7 @@ sudo apt-get install jq
 8. Run the following command
 
 ```bash
-certbot certonly --manual --manual-auth-hook ./authenticator.sh --manual-cleanup-hook ./cleanup.sh -d *.example.com
+certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-auth-hook ./authenticator.sh --manual-cleanup-hook ./cleanup.sh -d *.example.com
 ```
 
 If you do not receive the following message at the end, continue with the steps
@@ -60,7 +60,7 @@ crontab -e
 11. Type the following line
 
 ```bash
-certbot renew --manual --manual-auth-hook /etc/letsencrypt/scripts/certbot-whm/authenticator.sh --manual-cleanup-hook /etc/letsencrypt/scripts/certbot-whm/cleanup.sh -d *.example.com >> /etc/letsencrypt/scripts/certbot-whm/certbot.renew.log
+certbot renew --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-auth-hook /etc/letsencrypt/scripts/certbot-whm/authenticator.sh --manual-cleanup-hook /etc/letsencrypt/scripts/certbot-whm/cleanup.sh -d *.example.com >> /etc/letsencrypt/scripts/certbot-whm/certbot.renew.log
 ```
 
 12. Press `Esc`.
