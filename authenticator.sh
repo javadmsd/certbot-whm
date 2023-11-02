@@ -6,7 +6,7 @@ source "$DIR/config.sh"
 echo "CHALLENGE_DOMAIN: ${RECORD_DOMAIN}"
 echo "CHALLENGE_VALUE: ${CERTBOT_VALIDATION}"
 
-PAYLOAD="class=IN&domain=$RECORD_DOMAIN&name=$RECORD_NAME&ttl=$TTL&type=$RECORD_TYPE&txtdata=mjm"
+PAYLOAD="class=IN&domain=$RECORD_DOMAIN&name=$RECORD_NAME&ttl=$TTL&type=$RECORD_TYPE&txtdata=$CERTBOT_VALIDATION"
 
 RESPONSE=$(curl -X POST "https://$WHM_SERVER:2087/$WHM_CPSESS/json-api/addzonerecord" \
     -H "Authorization: whm $WHM_USERNAME:$WHM_TOKEN" \
