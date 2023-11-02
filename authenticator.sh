@@ -23,7 +23,7 @@ while true; do
         break
     fi
 
-    for d in $(dig "@$DNS_SERVER" -t txt +short "$RECORD_NAME.$RECORD_DOMAIN"); do
+    for d in $(dig "@$DNS_SERVER" -t txt +short "$RECORD_NAME.$RECORD_DOMAIN."); do
         if [[ "$d" = "\"$CERTBOT_VALIDATION\"" ]]; then
             echo "DNS propagation time: $(($attempt_counter * $SLEEP_TIME))s"
             break 2
